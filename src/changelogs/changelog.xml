@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi="http://www.w3.org/2001/XMLSchema-instance" xsi_schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+<changeSet id="Department.sql_1748432869" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Department.sql"/></changeSet><changeSet id="Employee.sql_1748433349" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Employee.sql"/></changeSet><changeSet id="Job.sql_1748434400" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Job.sql"/></changeSet><changeSet id="EmployeeJob.sql_1748434480" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\EmployeeJob.sql"/></changeSet><changeSet id="Salary.sql_1748434630" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Salary.sql"/></changeSet></databaseChangeLog>

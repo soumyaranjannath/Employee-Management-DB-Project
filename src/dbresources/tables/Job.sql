@@ -1,0 +1,6 @@
+CREATE TABLE Job (
+    JobID INT IDENTITY(1,1) PRIMARY KEY,
+    JobTitle NVARCHAR(100) NOT NULL,
+    MinSalary DECIMAL(10, 2) NULL,
+    MaxSalary DECIMAL(10, 2) NULL
+);
