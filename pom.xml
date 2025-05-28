@@ -22,8 +22,8 @@
       <artifactId>liquibase-maven-plugin</artifactId>
       <version>4.31.0</version>
         <configuration>
-          <changeLogFile>src/changelogs/changelog.sql</changeLogFile>
-          <outputChangeLogFile>src/changelogs/changelog.sql</outputChangeLogFile>
+          <changeLogFile>src/changelogs/changelog.xml</changeLogFile>
+          <outputChangeLogFile>src/changelogs/changelog.xml</outputChangeLogFile>
           <!--<diffChangeLogFile>src/resources/changelog-schema.sql</diffChangeLogFile>-->
           <propertyFile>${db.properties.file}</propertyFile>
         </configuration>
@@ -58,13 +58,13 @@
       <id>dev-vs-prod</id>
       <properties>
       <db.properties.file>src/dbproperties/dev-vs-prod.properties</db.properties.file>
-      <liquibase.diffChangeLogFile>src/resources/changelog-diff.sql</liquibase.diffChangeLogFile>
+      <liquibase.diffChangeLogFile>src/resources/changelog-diff.xml</liquibase.diffChangeLogFile>
       </properties>
     </profile>
     <profile>
       <id>schema-changelog</id>
       <properties>
-        <liquibase.changeLogFile>src/changelogs/changelog-diff.sql</liquibase.changeLogFile>
+        <liquibase.changeLogFile>src/changelogs/changelog-diff.xml</liquibase.changeLogFile>
       </properties>
     </profile>
   </profiles>
