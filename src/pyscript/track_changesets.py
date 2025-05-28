@@ -45,12 +45,24 @@ def update_changelog(changeset_file):
     else:
 
 
-        root = etree.Element("{%s}databaseChangeLog" % NAMESPACE,
-                             nsmap={None: NAMESPACE},  
-                             xsi="http://www.w3.org/2001/XMLSchema-instance",
-                             xsi_schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd")
-        tree = etree.ElementTree(root)
+        # root = etree.Element("{%s}databaseChangeLog" % NAMESPACE,
+        #                      nsmap={None: NAMESPACE},  
+        #                      xsi="http://www.w3.org/2001/XMLSchema-instance",
+        #                      xsi_schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd")
+        # tree = etree.ElementTree(root)
    
+        root = etree.Element("{%s}databaseChangeLog" % NAMESPACE,
+            nsmap={
+                None: NAMESPACE,
+                "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+            }
+        )
+        root.set("{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
+                "http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd")
+
+        tree = etree.ElementTree(root)
+
+
     file_name = os.path.basename(changeset_file)  
     existing_changesets = root.findall("{%s}changeSet" % NAMESPACE)
    

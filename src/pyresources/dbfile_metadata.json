@@ -1,1 +1,26 @@
-{}
+{
+    "src\\dbresources\\Department.sql": {
+        "size": 158,
+        "checksum": "77e6d118fdcac95cb3bfa2f512d8b984"
+    },
+    "src\\dbresources\\tables\\Department.sql": {
+        "size": 162,
+        "checksum": "51753f88ed133100d6573e521b827b20"
+    },
+    "src\\dbresources\\tables\\Employee.sql": {
+        "size": 350,
+        "checksum": "1770d3a2579fc20fd7da837a2ee45f0d"
+    },
+    "src\\dbresources\\tables\\Job.sql": {
+        "size": 173,
+        "checksum": "4aaca7a4e91d61633448cec87cef1ac8"
+    },
+    "src\\dbresources\\tables\\EmployeeJob.sql": {
+        "size": 299,
+        "checksum": "0f706386053cc88316af1229163dc411"
+    },
+    "src\\dbresources\\tables\\Salary.sql": {
+        "size": 280,
+        "checksum": "0dce86245d311c710058127479942264"
+    }
+}
