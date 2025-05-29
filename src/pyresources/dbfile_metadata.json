@@ -1,26 +1,50 @@
 {
-    "src\\dbresources\\Department.sql": {
-        "size": 158,
-        "checksum": "77e6d118fdcac95cb3bfa2f512d8b984"
-    },
     "src\\dbresources\\tables\\Department.sql": {
         "size": 162,
-        "checksum": "51753f88ed133100d6573e521b827b20"
+        "checksum": "d7bba55e8c6e55edd13ca9d7f7e48e8d"
     },
     "src\\dbresources\\tables\\Employee.sql": {
-        "size": 350,
-        "checksum": "1770d3a2579fc20fd7da837a2ee45f0d"
-    },
-    "src\\dbresources\\tables\\Job.sql": {
-        "size": 173,
-        "checksum": "4aaca7a4e91d61633448cec87cef1ac8"
+        "size": 374,
+        "checksum": "def17fe7eedf82cd6c2e51a69c04011a"
     },
     "src\\dbresources\\tables\\EmployeeJob.sql": {
         "size": 299,
-        "checksum": "0f706386053cc88316af1229163dc411"
+        "checksum": "ec93f6ce3252c4daf09e47de01380136"
+    },
+    "src\\dbresources\\tables\\Job.sql": {
+        "size": 173,
+        "checksum": "46bc9aac6f03430d2491953a81721ac9"
     },
     "src\\dbresources\\tables\\Salary.sql": {
         "size": 280,
-        "checksum": "0dce86245d311c710058127479942264"
+        "checksum": "7c78d124e1d33251241ed51c4ef6d6ac"
+    },
+    "src\\dbresources\\views\\VW_CurrentEmployeeSalary.sql": {
+        "size": 883,
+        "checksum": "8d065bdc4f69e0a3c28c5aa35ba0a8ac"
+    },
+    "src\\dbresources\\views\\VW_EmployeeFullDetails.sql": {
+        "size": 959,
+        "checksum": "9a9e10ded6e9225f443e6a1afbb9b9db"
+    },
+    "src\\dbresources\\Indexes.sql": {
+        "size": 205,
+        "checksum": "2edf9f981a3bfac178010fc70e6e7d89"
+    },
+    "src\\dbresources\\stored procedures\\SP_GetEmployeeByDepartment.sql": {
+        "size": 1199,
+        "checksum": "6709ec9c9cc964e55d7ad610936d03fe"
+    },
+    "src\\dbresources\\stored procedures\\SP_UpdateEmployeeSalary.sql": {
+        "size": 1230,
+        "checksum": "763e72ba9de4242d7bbdc6bb49602cbe"
+    },
+    "src\\dbresources\\stored procedures\\SP_AddNewEmployee.sql": {
+        "size": 1347,
+        "checksum": "4627e5ec9fad5ded2539958f8c9c3420"
+    },
+    "src\\dbresources\\stored procedures\\SP_GetEmployeeHistory.sql": {
+        "size": 1572,
+        "checksum": "40135cfeb78b7ebf043974d640dd8bad"
     }
 }

@@ -1,3 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-  <changeSet id="Department.sql_1748436444" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Department.sql"/></changeSet><changeSet id="Employee.sql_1748436459" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Employee.sql"/></changeSet><changeSet id="EmployeeJob.sql_1748436464" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\EmployeeJob.sql"/></changeSet><changeSet id="Job.sql_1748436464" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Job.sql"/></changeSet><changeSet id="Salary.sql_1748436469" author="Soumyaranjan"><sqlFile path="src\dbresources\tables\Salary.sql"/></changeSet></databaseChangeLog>
+  <changeSet id="Job.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\Job.sql"/>
+  </changeSet>
+  <changeSet id="Department.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\Department.sql"/>
+  </changeSet>
+  <changeSet id="Employee.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\Employee.sql"/>
+  </changeSet>
+  <changeSet id="EmployeeJob.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\EmployeeJob.sql"/>
+  </changeSet>
+  <changeSet id="Salary.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\Salary.sql"/>
+  </changeSet>
+  <changeSet id="VW_CurrentEmployeeSalary.sql_1748510583" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\views\VW_CurrentEmployeeSalary.sql"/>
+  </changeSet>
+  <changeSet id="VW_EmployeeFullDetails.sql_1748511104" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\views\VW_EmployeeFullDetails.sql"/>
+  </changeSet>
+  <changeSet id="Indexes.sql_1748511705" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\Indexes.sql"/>
+  </changeSet>
+  <changeSet id="SP_GetEmployeeByDepartment.sql_1748512316" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\stored procedures\SP_GetEmployeeByDepartment.sql"/>
+  </changeSet>
+  <changeSet id="SP_UpdateEmployeeSalary.sql_1748512511" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\stored procedures\SP_UpdateEmployeeSalary.sql"/>
+  </changeSet>
+  <changeSet id="SP_AddNewEmployee.sql_1748512556" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\stored procedures\SP_AddNewEmployee.sql"/>
+  </changeSet>
+  <changeSet id="SP_GetEmployeeHistory.sql_1748512647" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\stored procedures\SP_GetEmployeeHistory.sql"/>
+  </changeSet>
+</databaseChangeLog>
