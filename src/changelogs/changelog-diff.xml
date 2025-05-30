@@ -1,0 +1,163 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="developer (generated)" id="1748514756143-1">
+        <createTable tableName="Salary">
+            <column autoIncrement="true" computed="false" name="SalaryID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__Salary__4BE204B7B0B2CB3C"/>
+            </column>
+            <column computed="false" name="EmployeeID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="BasicSalary" type="decimal(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" defaultValueConstraintName="DF__Salary__Bonus__04AFB25B" defaultValueNumeric="0" name="Bonus" type="decimal(10, 2)"/>
+            <column computed="false" name="EffectiveFrom" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-2">
+        <createTable tableName="Employee">
+            <column autoIncrement="true" computed="false" name="EmployeeID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__Employee__7AD04FF1CAE8F7C5"/>
+            </column>
+            <column computed="false" name="FirstName" type="nvarchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="LastName" type="nvarchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Email" type="nvarchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Phone" type="nvarchar(20)"/>
+            <column computed="false" name="HireDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="DepartmentID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-3">
+        <createTable tableName="EmployeeJob">
+            <column autoIncrement="true" computed="false" name="EmployeeJobID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__Employee__F7369751EC4BBB2D"/>
+            </column>
+            <column computed="false" name="EmployeeID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="JobID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="StartDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="EndDate" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-4">
+        <createTable tableName="Department">
+            <column autoIncrement="true" computed="false" name="DepartmentID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__Departme__B2079BCDF331D732"/>
+            </column>
+            <column computed="false" name="DepartmentName" type="nvarchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="Location" type="nvarchar(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-5">
+        <createTable tableName="Job">
+            <column autoIncrement="true" computed="false" name="JobID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__Job__056690E2DDDD964E"/>
+            </column>
+            <column computed="false" name="JobTitle" type="nvarchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column computed="false" name="MinSalary" type="decimal(10, 2)"/>
+            <column computed="false" name="MaxSalary" type="decimal(10, 2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-6">
+        <createIndex indexName="IDX_Salary_EffectiveFrom" tableName="Salary">
+            <column name="EmployeeID"/>
+            <column descending="true" name="EffectiveFrom"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-7">
+        <createView fullDefinition="true" viewName="VW_CurrentEmployeeSalary">/************************************************************************************
+================================================================
+Author			:	Soumyaranjan
+Create date		:   2025-05-29
+Description		:	View to get current Employee Salary
+================================================================
+Change log: Any modification to the View has to be reported here
+Date		Name			Jira Ticket No		Description
+2025-05-29  Soumyaranjan						Initial Version
+
+
+************************************************************************************/
+Create VIEW VW_CurrentEmployeeSalary AS
+SELECT s.EmployeeID, s.BasicSalary, s.Bonus, s.EffectiveFrom
+FROM Salary s
+INNER JOIN (
+    SELECT EmployeeID, MAX(EffectiveFrom) AS MaxDate
+    FROM Salary
+    GROUP BY EmployeeID
+) latest ON s.EmployeeID = latest.EmployeeID AND s.EffectiveFrom = latest.MaxDate;</createView>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-8">
+        <createIndex indexName="IDX_Employee_Dept" tableName="Employee">
+            <column name="DepartmentID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-9">
+        <addUniqueConstraint columnNames="Email" constraintName="UQ__Employee__A9D10534C2BEE297" tableName="Employee"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-10">
+        <createView fullDefinition="true" viewName="VW_EmployeeFullDetails">/************************************************************************************
+================================================================
+Author			:	Soumyaranjan
+Create date		:   2025-05-29
+Description		:	View to get Employee Full Details
+================================================================
+Change log: Any modification to the View has to be reported here
+Date		Name			Jira Ticket No		Description
+2025-05-29  Soumyaranjan						Initial Version
+
+
+************************************************************************************/
+
+Create VIEW VW_EmployeeFullDetails AS
+SELECT 
+    e.EmployeeID,
+    e.FirstName,
+    e.LastName,
+    e.Email,
+    e.Phone,
+    e.HireDate,
+    d.DepartmentName,
+    j.JobTitle
+FROM Employee e
+INNER JOIN Department d ON e.DepartmentID = d.DepartmentID
+LEFT JOIN EmployeeJob ej ON e.EmployeeID = ej.EmployeeID AND ej.EndDate IS NULL
+LEFT JOIN Job j ON ej.JobID = j.JobID;</createView>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-11">
+        <addForeignKeyConstraint baseColumnNames="EmployeeID" baseTableName="EmployeeJob" constraintName="FK__EmployeeJ__Emplo__00DF2177" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EmployeeID" referencedTableName="Employee" validate="true"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-12">
+        <addUniqueConstraint columnNames="DepartmentName" constraintName="UQ__Departme__D949CC3472742B51" tableName="Department"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-13">
+        <addForeignKeyConstraint baseColumnNames="EmployeeID" baseTableName="Salary" constraintName="FK__Salary__Employee__05A3D694" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EmployeeID" referencedTableName="Employee" validate="true"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-14">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="Employee" constraintName="FK__Employee__Depart__7E02B4CC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Department" validate="true"/>
+    </changeSet>
+    <changeSet author="developer (generated)" id="1748514756143-15">
+        <addForeignKeyConstraint baseColumnNames="JobID" baseTableName="EmployeeJob" constraintName="FK__EmployeeJ__JobID__01D345B0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobID" referencedTableName="Job" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

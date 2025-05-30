@@ -4,7 +4,7 @@
         "checksum": "d7bba55e8c6e55edd13ca9d7f7e48e8d"
     },
     "src\\dbresources\\tables\\Employee.sql": {
-        "size": 374,
+        "size": 350,
         "checksum": "def17fe7eedf82cd6c2e51a69c04011a"
     },
     "src\\dbresources\\tables\\EmployeeJob.sql": {

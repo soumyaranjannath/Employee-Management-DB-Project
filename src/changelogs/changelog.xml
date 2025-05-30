@@ -6,9 +6,6 @@
   <changeSet id="Department.sql_1748510583" author="Soumyaranjan">
     <sqlFile path="src\dbresources\tables\Department.sql"/>
   </changeSet>
-  <changeSet id="Employee.sql_1748510583" author="Soumyaranjan">
-    <sqlFile path="src\dbresources\tables\Employee.sql"/>
-  </changeSet>
   <changeSet id="EmployeeJob.sql_1748510583" author="Soumyaranjan">
     <sqlFile path="src\dbresources\tables\EmployeeJob.sql"/>
   </changeSet>
@@ -35,5 +32,8 @@
   </changeSet>
   <changeSet id="SP_GetEmployeeHistory.sql_1748512647" author="Soumyaranjan">
     <sqlFile path="src\dbresources\stored procedures\SP_GetEmployeeHistory.sql"/>
+  </changeSet>
+  <changeSet id="Employee.sql_1748590869" author="Soumyaranjan">
+    <sqlFile path="src\dbresources\tables\Employee.sql"/>
   </changeSet>
 </databaseChangeLog>

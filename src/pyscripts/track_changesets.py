@@ -6,7 +6,7 @@ import json
 
 changeset_dir = 'src/dbresources'
 changelog_file = 'src/changelogs/changelog.xml'
-metadata_file = 'src/pyresources/dbfile_metadata.json'
+metadata_file = 'src/pyresources/sqlfiles_metadata.json'
 
 NAMESPACE = "http://www.liquibase.org/xml/ns/dbchangelog"
 
